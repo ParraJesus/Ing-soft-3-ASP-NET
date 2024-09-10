@@ -1,0 +1,26 @@
+﻿@model EstudianteCursoModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Inscripción
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="EstudianteCurso" method="post">
+
+            <input asp-for="Estudiante_id" type="hidden" class="form-control">
+            <input asp-for="Curso_id" type="hidden" class="form-control">
+
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar la inscripción del estudiante: @Html.DisplayTextFor(m => m.Estudiante_id) al curso @Html.DisplayTextFor(m => m.Curso_id)?
+            </div>
+
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Listar" asp-controller="EstudianteCurso" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model ProfesorModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        Eliminar Profesor
+    </div>
+    <div class="card-body">
+        <form asp-action="Eliminar" asp-controller="Profesor" method="post">
+
+            <input asp-for="Profesor_id" type="hidden" class="form-control">
+
+            <div class="alert alert-danger" role="alert">
+                ¿Deseas eliminar al Profesor: @Html.DisplayTextFor(m => m.Nombre)?
+            </div>
+
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+            <a asp-action="Listar" asp-controller="Profesor" class="btn btn-warning">Volver a la lista</a>
+        </form>
+    </div>
+</div>
+

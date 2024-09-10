@@ -1,0 +1,29 @@
+CREATE TABLE "Profesor" (
+	"Profesor_id"	INTEGER,
+	"Nombre"	TEXT NOT NULL,
+	"Apellido"	TEXT NOT NULL,
+	PRIMARY KEY("Profesor_id" AUTOINCREMENT)
+)
+
+CREATE TABLE "Estudiante" (
+	"Estudiante_id"	INTEGER,
+	"Nombre"	TEXT NOT NULL,
+	"Apellido"	TEXT NOT NULL,
+	PRIMARY KEY("Estudiante_id" AUTOINCREMENT)
+)
+
+CREATE TABLE "Curso" (
+	"Curso_id"	INTEGER,
+	"Nombre"	TEXT NOT NULL,
+	"Profesor_id"	INTEGER NOT NULL,
+	PRIMARY KEY("Curso_id" AUTOINCREMENT),
+	FOREIGN KEY("Profesor_id") REFERENCES "Profesor"("Profesor_id")
+)
+
+CREATE TABLE "Estudiante_Curso" (
+	"Estudiante_id"	INTEGER,
+	"Curso_id"	INTEGER,
+	PRIMARY KEY("Estudiante_id","Curso_id"),
+	FOREIGN KEY("Curso_id") REFERENCES "Curso"("Curso_id"),
+	FOREIGN KEY("Estudiante_id") REFERENCES "Estudiante"("Estudiante_id")
+)
